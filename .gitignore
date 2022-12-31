@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/rust,macos,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=rust,macos,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,rust
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,macos,rust
 
 ### macOS ###
 # General
@@ -51,6 +51,7 @@ Cargo.lock
 *.pdb
 
 ### VisualStudioCode ###
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -69,4 +70,4 @@ Cargo.lock
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/rust,macos,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,rust
