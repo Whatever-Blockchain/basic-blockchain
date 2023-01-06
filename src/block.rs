@@ -1,6 +1,9 @@
 use std::fmt::{self, Debug, Formatter};
 
-use crate::{hashable::Hashable, u32_bytes, u128_bytes, u64_bytes, difficulty_bytes_as_u128, Hash, Transaction};
+use crate::{
+    difficulty_bytes_as_u128, hashable::Hashable, u128_bytes, u32_bytes, u64_bytes, Hash,
+    Transaction,
+};
 
 pub struct Block {
     pub index: u32,
@@ -27,13 +30,13 @@ impl Debug for Block {
     }
 }
 
-impl Block { 
+impl Block {
     pub fn new(
         index: u32,
         timestamp: u128,
         prev_block_hash: Hash,
         transactions: Vec<Transaction>,
-        difficulty: u128
+        difficulty: u128,
     ) -> Self {
         Block {
             index,
@@ -68,9 +71,9 @@ impl Hashable for Block {
         bytes.extend(&u64_bytes(&self.nonce));
         bytes.extend(
             self.transactions
-                    .iter()
-                    .flat_map(|transaction| transaction.bytes())
-                    .collect::<Vec<u8>>()
+                .iter()
+                .flat_map(|transaction| transaction.bytes())
+                .collect::<Vec<u8>>(),
         );
         bytes.extend(&u128_bytes(&self.difficulty));
 
