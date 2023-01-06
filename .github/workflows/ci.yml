@@ -8,7 +8,7 @@ on:
 
 jobs:
   rustfmt:
-    name: Check Rust Code with rustfmt and clippy
+    name: Check Rust Code with rustfmt
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
