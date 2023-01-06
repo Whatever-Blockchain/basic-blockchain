@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-use crate::{Address, Hashable, u64_bytes, Hash};
+use crate::{u64_bytes, Address, Hash, Hashable};
 
 #[derive(Clone)]
 pub struct Output {
@@ -26,17 +26,11 @@ pub struct Transaction {
 
 impl Transaction {
     pub fn input_value(&self) -> u64 {
-        self.inputs
-            .iter()
-            .map(|input| input.value)
-            .sum()
+        self.inputs.iter().map(|input| input.value).sum()
     }
 
     pub fn output_value(&self) -> u64 {
-        self.outputs
-            .iter()
-            .map(|output| output.value)
-            .sum()
+        self.outputs.iter().map(|output| output.value).sum()
     }
 
     pub fn input_hashes(&self) -> HashSet<Hash> {
@@ -65,15 +59,15 @@ impl Hashable for Transaction {
         bytes.extend(
             self.inputs
                 .iter()
-                .flat_map(|input| input.bytes()) 
-                .collect::<Vec<u8>>()
+                .flat_map(|input| input.bytes())
+                .collect::<Vec<u8>>(),
         );
 
         bytes.extend(
             self.outputs
                 .iter()
-                .flat_map(|output| output.bytes()) 
-                .collect::<Vec<u8>>()
+                .flat_map(|output| output.bytes())
+                .collect::<Vec<u8>>(),
         );
 
         bytes
